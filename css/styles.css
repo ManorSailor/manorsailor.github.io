@@ -120,8 +120,8 @@ a {
 }
 
 .nav-logo,
-.nav-logo>a,
-.nav-logo>a>svg {
+.nav-logo > a,
+.nav-logo > a > svg {
   width: 42px;
   height: 42px;
 }
@@ -156,10 +156,7 @@ a {
   content: '';
   display: block;
   position: absolute;
-  top: calc(100% + 1px);
-  right: 0;
-  bottom: 0;
-  left: 0.5px;
+  top: calc(100% + 1px); right: 0; bottom: 0; left: 0.5px;
   inset: calc(100% + 1px) 0 0 0.25px;
   width: 100%;
   height: 1px;
@@ -193,8 +190,8 @@ a {
     bottom: 0;
     right: 0;
     width: min(75vw, 400px);
-    height: 100vh;
     /* Fixes the issue of nav-menu notfilling the vertical space completely. It was getting obstructed by the browser's toolbar. Now the nav-box (which contains the nav-menu takes the full horizontal viewport of any given device*/
+    height: 100vh;
     justify-content: center;
     border-radius: 10px;
     transform: translateX(100%);

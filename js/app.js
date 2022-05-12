@@ -3,7 +3,7 @@ const ham = document.getElementById('ham');
 const content = document.getElementById('content');
 
 // Hide the navigation menu if the user touches any area outside of nav-menu i.e, the blurred content
-content.addEventListener('touchstart', () => {
+content.addEventListener('click', () => {
     visible = navMenu.getAttribute('toggle');
 
     if (visible == 'true') {
@@ -14,7 +14,7 @@ content.addEventListener('touchstart', () => {
 
 // Add functionality to the hamburger for hiding & unhiding the navigation
 // Setting the appropriate overflow property on the body to lock scrolling when menu is open
-ham.addEventListener('touchstart', () => {
+ham.addEventListener('click', () => {
     visible = navMenu.getAttribute('toggle');
 
     if (visible == 'false') {

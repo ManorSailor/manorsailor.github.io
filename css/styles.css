@@ -21,10 +21,14 @@
   --lightest-slate: #CCD6F6;
   --white: #FFFFFF;
   --blue: #64DAFF;
-
+  
   --violet-tint: rgba(23, 5, 40, 0.5);
+  --blue-alt: rgba(100, 218, 255, 0.6);
   --blue-tint: rgba(100, 218, 255, 0.122);
   --blue-tint-alt: rgba(100, 218, 255, 0.55);
+
+  --paths-theme: var(--blue-tint) var(--blue);
+  --planets-theme: var(--blue-tint-alt) var(--blue-tint-alt) var(--blue-tint-alt) var(--blue);
 
   --font-text: 'Work Sans', 'sans-serif';
   --font-head: 'Poppins', 'sans-serif';
@@ -44,7 +48,8 @@
   --social-icons-size: 1.5rem;
   --social-bar-height: 6.25rem;
 
-  --moon-size: 320px;
+  /* --mini-sys-size:  */
+  --sun-size: 320px;
   --satellite-size: 60px;
 
   /* Transition */
@@ -57,14 +62,33 @@
   --easeOutSine: cubic-bezier(0.390, 0.575, 0.565, 1.000);
   --easeOutCubic: cubic-bezier(0.215, 0.610, 0.355, 1.000);
   --easeInOutSine: cubic-bezier(0.445, 0.050, 0.550, 0.950);
-  /* 
-    --custom-clr: NULL; Logical property
-  */
 }
 
 @media screen and (max-width: 768px) {
   :root {
-    --moon-size: 260px;
+    --mini-sys-size: 100px;
+    --planets-size: 210px;
+
+    --mercury-top: 8px;
+    --venus-top: 19px;
+    --earth-top: 23px;
+
+    --sun-size: 100px;
+    --mercury-size: 20px;
+    --venus-size: 25px;
+    --earth-size: 35px;
+
+    --mercury-orbit-size: 100px;
+    --venus-orbit-size: 150px;
+    --earth-orbit-size: 200px;
+
+    --mercury-rotation-time: 29.33s;
+    --venus-rotation-time: 121.5;
+    --earth-rotation-time: 0.5s;
+
+    --mercury-revolution-time: 44s;
+    --venus-revolution-time: 122s;
+    --earth-revolution-time: 182s;
   }
 }
 
@@ -389,13 +413,14 @@ section {
   --gap: 0;
   align-items: center;
   justify-content: space-evenly;
+  overflow: hidden;
 }
 
 .home-text {
   --gap: 0;
   flex-direction: column;
   --align-flex: flex-start;
-  padding-top: 40%;
+  padding-top: 15%;
 }
 
 .ht-intro {
@@ -451,45 +476,149 @@ section {
   transform: translateX(10px);
 }
 
+/* ============= Mini Solar System ============= */
+/* Inspired/Kudos by/to: https://codepen.io/delvignefred/pen/ZEKyjeo?editors=1100 */
 .mini-system {
+  --gap: 0;
+  justify-content: center;
+  transform-origin: center;
+  position: relative;
+  transform: skew(-45deg);  
+  width: var(--mini-sys-size);
+  height: var(--mini-sys-size);
+}
+
+.mini-system .sun {
+  position: absolute;
+  transform: skew(45deg);
+  width: var(--sun-size);
+  height: var(--sun-size);
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue) 20%, var(--blue-tint) 100%);
+  filter: drop-shadow(0 0 2rem var(--blue-alt)) blur(1px);
+}
+
+.planets {
+  --gap: 0;
+  justify-content: center;
+  width: var(--planets-size);
+  height: var(--planets-size);
   position: relative;
 }
 
-.mini-system .moon {
-  color: var(--slate);
-  width: var(--moon-size);
-  height: var(--moon-size);
-}
-
-.mini-system .satellite {
-  width: var(--satellite-size);
-  height: var(--satellite-size);
-  transform: translateY(20px) rotate(6deg);
-}
-
-.satellite-box {
+.planets .mercury,
+.planets .venus,
+.planets .earth {
+  --gap: 0;
+  justify-content: center;
   position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  transform-origin: center;
-  animation: revolve 6s linear infinite;
+  border: 2px;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: var(--planets-theme);
+  background-color: transparent;
+  animation-name: rotation !important;
+  animation-timing-function: linear !important;
+  animation-iteration-count: infinite !important;
 }
 
-.satellite-box::before {
+.planets .mercury {
+  top: var(--mercury-top);
+  width: var(--mercury-size);
+  height: var(--mercury-size);
+  animation-duration: var(--mercury-rotation-time) !important;
+}
+
+.planets .venus {
+  top: var(--venus-top);
+  width: var(--venus-size);
+  height: var(--venus-size);
+  animation-duration: var(--venus-rotation-time) !important;
+}
+
+.planets .earth {
+  top: var(--earth-top);
+  width: var(--earth-size);
+  height: var(--earth-size);
+  animation-duration: var(--earth-rotation-time) !important;
+}
+
+.planets .mercury::after,
+.planets .venus::after,
+.planets .earth::after {
   content: '';
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  width: var(--moon-size);
-  height: var(--moon-size);
-  border: 1px solid var(--blue-tint-alt);
-  border-radius: var(--moon-size);
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  background-color: var(--blue);
 }
 
-@keyframes revolve {
+.planets .earth::after {
+  animation-name: blinking-earth !important;
+  animation-duration: 2s !important;
+  animation-timing-function: linear !important;
+  animation-iteration-count: infinite !important;
+}
+
+.planets .mercury-orbit,
+.planets .venus-orbit,
+.planets .earth-orbit {
+  position: absolute;
+  border: 2px;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: var(--paths-theme);
+  animation-name: revolution !important;
+  animation-timing-function: linear !important;
+  animation-iteration-count: infinite !important;
+}
+
+.planets .mercury-orbit {
+  width: var(--mercury-orbit-size);
+  height: var(--mercury-orbit-size);
+  animation-duration: var(--mercury-revolution-time) !important;
+}
+
+.planets .venus-orbit {
+  width: var(--venus-orbit-size);
+  height: var(--venus-orbit-size);
+  animation-duration: var(--venus-revolution-time) !important;
+}
+
+.planets .earth-orbit {
+  width: var(--earth-orbit-size);
+  height: var(--earth-orbit-size);
+  animation-duration: var(--earth-revolution-time) !important;
+}
+
+@keyframes revolution {
   0% {
     transform: rotate(0deg);
   }
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes blinking-earth {
+  0% {
+    background-color: var(--blue);
+    filter: drop-shadow(0 0 0.3rem var(--blue-alt)) blur(0.5px);
+  }
+
+  100% {
+    background-color: var(--violet);
+    filter: drop-shadow(0 0 0.3rem var(--blue-alt)) blur(0);
   }
 }

@@ -48,9 +48,30 @@
   --social-icons-size: 1.5rem;
   --social-bar-height: 6.25rem;
 
-  /* --mini-sys-size:  */
-  --sun-size: 320px;
-  --satellite-size: 60px;
+  /* Mini Solar System  */
+  --mini-sys-size: 400px;
+  --planets-size: 410px;
+
+  --mercury-top: 36px;
+  --venus-top: 48px;
+  --earth-top: 70px;
+
+  --sun-size: 200px;
+  --mercury-size: 25px;
+  --venus-size: 35px;
+  --earth-size: 40px;
+
+  --mercury-orbit-size: 200px;
+  --venus-orbit-size: 270px;
+  --earth-orbit-size: 350px;
+
+  --mercury-rotation-time: 29.33s;
+  --venus-rotation-time: 121.5;
+  --earth-rotation-time: 0.5s;
+
+  --mercury-revolution-time: 44s;
+  --venus-revolution-time: 122s;
+  --earth-revolution-time: 182s;
 
   /* Transition */
   --quick: 200ms;
@@ -81,14 +102,6 @@
     --mercury-orbit-size: 100px;
     --venus-orbit-size: 150px;
     --earth-orbit-size: 200px;
-
-    --mercury-rotation-time: 29.33s;
-    --venus-rotation-time: 121.5;
-    --earth-rotation-time: 0.5s;
-
-    --mercury-revolution-time: 44s;
-    --venus-revolution-time: 122s;
-    --earth-revolution-time: 182s;
   }
 }
 
@@ -323,9 +336,6 @@ a {
     cursor: pointer;
   }
 
-  .social {
-    display: none;
-  }
   /* Blur all the sections with an id of content or make sure every content is within a div tag with a class or id of content or anything */
   /* section {
     filter: blur(5px) brightness(0.8);
@@ -408,9 +418,16 @@ section {
   transform: translateY(-5px);
 }
 
+@media screen and (max-width: 768px) {
+  .social {
+    display: none;
+  }
+}
+
 /* =================== Home =================== */
 .home {
   --gap: 0;
+  flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
   overflow: hidden;
@@ -420,7 +437,6 @@ section {
   --gap: 0;
   flex-direction: column;
   --align-flex: flex-start;
-  padding-top: 15%;
 }
 
 .ht-intro {
@@ -483,7 +499,7 @@ section {
   justify-content: center;
   transform-origin: center;
   position: relative;
-  transform: skew(-45deg);  
+  transform: skew(-45deg);
   width: var(--mini-sys-size);
   height: var(--mini-sys-size);
 }
@@ -620,5 +636,25 @@ section {
   100% {
     background-color: var(--violet);
     filter: drop-shadow(0 0 0.3rem var(--blue-alt)) blur(0);
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .home {
+    flex-direction: column;
+  }
+
+  .mini-system {
+    order: -1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home-text {
+    padding-top: 15%;
+  }
+
+  .mini-system {
+    order: 0;
   }
 }

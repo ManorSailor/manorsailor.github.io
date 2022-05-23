@@ -1,7 +1,9 @@
 /* ================= Variables/Constants ================= */
 let oldTimeout;
+let oldScrollY = window.scrollY;
 
 /* ================= Navbar Constants ================= */
+const navHeader = document.getElementById('nav-header');
 const navMenu = document.getElementById('nav-menu');
 const ham = document.getElementById('ham');
 const content = document.getElementById('content');
@@ -27,6 +29,23 @@ window.addEventListener('resize', () => {
 });
 
 /* ================= Navigation ================= */
+
+// Hide/show the navigation when the user scrolls downwards/upwards
+window.addEventListener('scroll', () => {
+    newScrollY = window.scrollY;
+    
+    if (newScrollY > oldScrollY) {
+        navHeader.classList.add('hide-nav');
+    } else if (newScrollY == 0) {
+        navHeader.classList.remove('hide-nav', 'resize-nav');
+    } else {
+        navHeader.classList.add('resize-nav');
+        navHeader.classList.remove('hide-nav');
+    }
+
+    // Update oldScroll position because if we did it before both scroll will be the same, thereby, rendering our if statement useless
+    oldScrollY = newScrollY;
+});
 
 // Hide the navigation menu if the user touches any area outside of nav-menu i.e, the blurred content
 ['click', 'touchmove'].forEach(eve => {

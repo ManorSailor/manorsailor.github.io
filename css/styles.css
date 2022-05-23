@@ -40,7 +40,7 @@
   --fs-lg: 18px;
   --fs-xl: 20px;
 
-  --fs-head: 3.5rem;
+  --fs-head: 2.5rem;
   --fs-title: 3rem;
 
   --border-radius: 4px;
@@ -168,6 +168,43 @@ a {
   transition: none !important;
 }
 
+.hide-nav {
+  transform: translateY(-100%);
+}
+
+.resize-nav {
+  height: 80px !important;
+}
+
+.heading {
+  /* --gap: 0.5rem; */
+  font-weight: 800;
+  position: relative;
+  font-size: var(--fs-head);
+  justify-content: center;
+}
+
+.heading::before {
+  content: url(../img/left-line.svg);
+  right: 104%;
+}
+
+.heading::after {
+  content: url(../img/right-line.svg);
+  left: 104%;
+}
+
+.heading::before,
+.heading::after {
+  --gap: 0;
+  display: flex;
+  position: absolute;
+  width: 300px;
+  height: 1px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 /* ========================== Navigation Bar ========================== */
 .nav-header {
   display: grid;
@@ -177,6 +214,8 @@ a {
   height: 100px;
   position: fixed;
   z-index: 10;
+  transition: transform var(--quick) var(--easeOutSine) 0.1s,
+              height var(--quick) var(--easeOutSine);
   overflow: hidden;
 }
 
@@ -353,7 +392,18 @@ main {
 section {
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
+
+/* section::before {
+  content: '';
+  position: absolute;
+  top: 10%; left: 15%;
+  width: 5px;
+  aspect-ratio: 1;
+  background-color: red;
+} */
 
 /* =================== Social Bar =================== */
 .social {
@@ -430,7 +480,10 @@ section {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  overflow: hidden;
+}
+
+.home::before {
+  display: none;
 }
 
 .home-text {
@@ -442,7 +495,7 @@ section {
 .ht-intro {
   font-weight: 100;
   color: var(--blue);
-  font-size: clamp(var(--fs-md), 1vw, var(--fs-xl));
+  font-size: clamp(var(--fs-md), 3vw, var(--fs-xl));
   font-family: var(--font-text);
   margin-bottom: 1rem;
   /* margin-left: 0.185rem; */
@@ -450,7 +503,7 @@ section {
 
 .ht-name {
   font-weight: 600;
-  font-size: var(--fs-head);
+  font-size: clamp(var(--fs-title), 8vw, var(--fs-head));
   color: var(--lightest-slate);
   margin-bottom: -0.4rem;
 }
@@ -458,7 +511,7 @@ section {
 .ht-desc {
   /* font-size: clamp(var(--fs-md), 100vw, var(--fs-lg)); */
   margin: 1rem 0 1.5rem 0;
-  font-size: var(--fs-md);
+  font-size: clamp(var(--fs-sm), 2vw, var(--fs-md));
   max-width: 584px;
 }
 
@@ -657,4 +710,19 @@ section {
   .mini-system {
     order: 0;
   }
+}
+
+/* =================== About =================== */
+.about {
+  justify-content: space-evenly;
+}
+
+.about-box {
+  flex-direction: row;
+  justify-content: center;
+}
+
+.about-text {
+  flex-direction: column;
+  max-width: 50%;
 }

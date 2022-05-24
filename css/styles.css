@@ -39,14 +39,17 @@
   --fs-md: 16px;
   --fs-lg: 18px;
   --fs-xl: 20px;
+  --fs-xxl: 1.6rem;
 
-  --fs-head: 2.5rem;
-  --fs-title: 3rem;
+  --fs-head: 2rem;
+  --fs-title: 3.5rem;
 
   --border-radius: 4px;
 
   --social-icons-size: 1.5rem;
   --social-bar-height: 6.25rem;
+
+  --heading-line: 300px;
 
   /* Mini Solar System  */
   --mini-sys-size: 400px;
@@ -102,6 +105,8 @@
     --mercury-orbit-size: 100px;
     --venus-orbit-size: 150px;
     --earth-orbit-size: 200px;
+
+    --heading-line: 100px;
   }
 }
 
@@ -109,7 +114,7 @@ body {
   color: var(--custom-color, var(--slate));
   font-family: var(--custom-font, var(--font-text));
   background-color: var(--violet);
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
 /* ========================== Typography ========================== */
@@ -132,7 +137,6 @@ p,
 li,
 a {
   display: inline-block;
-  letter-spacing: 0.25px;
   color: var(--slate);
   font-family: var(--font-text);
 }
@@ -145,7 +149,6 @@ a {
 }
 
 .container {
-  width: calc(100vw - 3.5rem);
   margin: 0 auto;
   min-height: 100vh;
   max-width: 1250px;
@@ -180,7 +183,7 @@ a {
   /* --gap: 0.5rem; */
   font-weight: 800;
   position: relative;
-  font-size: var(--fs-head);
+  font-size: clamp(var(--fs-xxl), 4vw, var(--fs-head));
   justify-content: center;
 }
 
@@ -197,12 +200,11 @@ a {
 .heading::before,
 .heading::after {
   --gap: 0;
-  display: flex;
+  display: block;
   position: absolute;
-  width: 300px;
-  height: 1px;
-  align-items: center;
-  flex-shrink: 0;
+  width: var(--heading-line);
+  bottom: 15%;
+  /* opacity: 0.4; */
 }
 
 /* ========================== Navigation Bar ========================== */
@@ -387,23 +389,34 @@ main {
   margin: 0 auto;
   max-width: 1600px;
   min-height: 100vh;
+  padding: 0 150px;
+  counter-reset: items;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    padding: 0 25px;
+  }
 }
 
 section {
   flex-direction: column;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
-/* section::before {
-  content: '';
-  position: absolute;
-  top: 10%; left: 15%;
-  width: 5px;
-  aspect-ratio: 1;
-  background-color: red;
-} */
+section::before {
+  counter-increment: items;
+  content: '0' counter(items) '.';
+  position: absolute; /* Change to sticky */
+  top: 10%; left: 5%; /* Set left to 15% */
+  font-weight: 100;
+  color: var(--blue);
+  font-family: var(--font-num);
+  font-size: var(--fs-lg);
+  align-self: flex-start;
+}
 
 /* =================== Social Bar =================== */
 .social {
@@ -480,6 +493,7 @@ section {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  overflow: hidden;
 }
 
 .home::before {
@@ -495,7 +509,7 @@ section {
 .ht-intro {
   font-weight: 100;
   color: var(--blue);
-  font-size: clamp(var(--fs-md), 3vw, var(--fs-xl));
+  font-size: clamp(var(--fs-sm), 3vw, var(--fs-xl));
   font-family: var(--font-text);
   margin-bottom: 1rem;
   /* margin-left: 0.185rem; */
@@ -503,14 +517,14 @@ section {
 
 .ht-name {
   font-weight: 600;
-  font-size: clamp(var(--fs-title), 8vw, var(--fs-head));
+  font-size: clamp(var(--fs-head), 8vw, var(--fs-title));
   color: var(--lightest-slate);
   margin-bottom: -0.4rem;
 }
 
 .ht-desc {
   /* font-size: clamp(var(--fs-md), 100vw, var(--fs-lg)); */
-  margin: 1rem 0 1.5rem 0;
+  margin: 1.5rem 0 1.5rem 0;
   font-size: clamp(var(--fs-sm), 2vw, var(--fs-md));
   max-width: 584px;
 }
@@ -714,15 +728,34 @@ section {
 
 /* =================== About =================== */
 .about {
-  justify-content: space-evenly;
+  --gap: 3rem;
 }
 
 .about-box {
+  --gap: 2rem;
   flex-direction: row;
   justify-content: center;
+  --align-flex: flex-start;
 }
 
 .about-text {
+  --gap: 1rem;
   flex-direction: column;
-  max-width: 50%;
+  font-size: clamp(var(--fs-md), 2vw, var(--fs-lg));
+  max-width: 40%;
+}
+
+.about-img {
+  margin-top: 7px; /* Just for satisfying my ocd */
+}
+
+@media screen and (max-width: 768px) {
+  .about-box {
+    flex-direction: column;
+    --align-flex: center;
+  }
+
+  .about-text {
+    max-width: none;
+  }
 }

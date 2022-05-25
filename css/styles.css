@@ -12,6 +12,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --violet: #170528;
   --light-violet: #260A3D;
@@ -45,11 +49,12 @@
   --fs-title: 3.5rem;
 
   --border-radius: 4px;
+  --card-radius: 6px;
 
   --social-icons-size: 1.5rem;
   --social-bar-height: 6.25rem;
 
-  --heading-line: 300px;
+  --heading-line: 200px;
 
   /* Mini Solar System  */
   --mini-sys-size: 400px;
@@ -392,6 +397,12 @@ main {
   padding: 0 150px;
 }
 
+@media screen and (max-width: 1000px) {
+  main {
+    padding: 0 100px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   main {
     padding: 0 25px;
@@ -729,7 +740,8 @@ section {
   --gap: 1rem;
   flex-direction: column;
   font-size: clamp(var(--fs-md), 2vw, var(--fs-lg));
-  max-width: 40%;
+  text-align: center;
+  max-width: 60%;
 }
 
 .about-img {
@@ -745,4 +757,68 @@ section {
   .about-text {
     max-width: none;
   }
+}
+
+/* =================== Skills =================== */
+.skills {
+  --gap: 5rem;
+  /* flex-direction: row; */
+}
+
+.skills-box {
+  display: grid;
+  gap: 0.75rem;
+  row-gap: 1.25rem;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.card {
+  --gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  width: 125px;
+  height: 125px;
+  border-radius: var(--card-radius);
+  /* background-color: var(--light-violet); */
+  cursor: pointer;
+}
+
+.card,
+.card * {
+  transition: all var(--normal) var(--easeOutSine);
+}
+
+.card svg {
+  width: 40px;
+  height: 40px;
+  color: var(--slate);
+  transform: translateY(50%);
+  opacity: 0.5;
+}
+
+.card p {
+  opacity: 0;
+  transition-delay: 0.05s;
+  transform: translateY(-50%) scaleY(0.5);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background-color: var(--light-violet);
+}
+
+.card:hover svg,
+.card:hover p {
+  transform: translateY(0) scaleY(1);
+}
+
+.card:hover svg,
+.card:hover svg path,
+.card:hover p {
+  opacity: 1;
+}
+
+.card:hover svg path,
+.card:hover p {
+  color: var(--blue);
 }

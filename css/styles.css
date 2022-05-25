@@ -390,7 +390,6 @@ main {
   max-width: 1600px;
   min-height: 100vh;
   padding: 0 150px;
-  counter-reset: items;
 }
 
 @media screen and (max-width: 768px) {
@@ -404,18 +403,6 @@ section {
   justify-content: center;
   position: relative;
   /* overflow: hidden; */
-}
-
-section::before {
-  counter-increment: items;
-  content: '0' counter(items) '.';
-  position: absolute; /* Change to sticky */
-  top: 10%; left: 5%; /* Set left to 15% */
-  font-weight: 100;
-  color: var(--blue);
-  font-family: var(--font-num);
-  font-size: var(--fs-lg);
-  align-self: flex-start;
 }
 
 /* =================== Social Bar =================== */

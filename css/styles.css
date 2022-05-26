@@ -786,7 +786,7 @@ section {
   border-radius: var(--card-radius);
   cursor: pointer; /* Gives you the hand cursor pointer */
   user-select: none; /* Makes the card & all of its children unselectable by the user */
-  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.6);
 }
 
 .card,

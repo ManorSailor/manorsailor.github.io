@@ -39,6 +39,7 @@ html {
   --font-title: 'Poppins', 'sans-serif';
   --font-num: 'Fira Code', 'monospace';
 
+  --fs-xs: 12px;
   --fs-sm: 14px;
   --fs-md: 16px;
   --fs-lg: 18px;
@@ -434,6 +435,11 @@ section {
   pointer-events: auto;
 }
 
+.social-list li *,
+.mail-box > a {
+  transition: all var(--normal) var(--easeOutSine);
+}
+
 .social-list::after,
 .mail-box::after {
   content: '';
@@ -446,7 +452,6 @@ section {
 .social-items,
 .mail-box > a {
   padding: 0.5rem 0.75rem;
-  transition: all var(--normal) var(--easeInOutSine);
 }
 
 .social-items > .icons,
@@ -476,7 +481,7 @@ section {
 
 .social-items:hover,
 .mail-box > a:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
 }
 
 @media screen and (max-width: 768px) {
@@ -776,11 +781,12 @@ section {
   --gap: 1rem;
   flex-direction: column;
   justify-content: center;
-  width: 125px;
-  height: 125px;
+  width: clamp(60px, 12vw, 125px);
+  height: clamp(60px, 12vw, 125px);
   border-radius: var(--card-radius);
-  /* background-color: var(--light-violet); */
-  cursor: pointer;
+  cursor: pointer; /* Gives you the hand cursor pointer */
+  user-select: none; /* Makes the card & all of its children unselectable by the user */
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.6);
 }
 
 .card,
@@ -799,12 +805,14 @@ section {
 .card p {
   opacity: 0;
   transition-delay: 0.05s;
+  font-size: clamp(var(--fs-xs), 2vw, var(--fs-md));
   transform: translateY(-50%) scaleY(0.5);
 }
 
 .card:hover {
   transform: translateY(-5px);
   background-color: var(--light-violet);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 1);
 }
 
 .card:hover svg,

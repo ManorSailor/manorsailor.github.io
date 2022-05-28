@@ -191,7 +191,6 @@ a {
   font-weight: 800;
   position: relative;
   font-size: clamp(var(--fs-xxxl), 4vw, var(--fs-head));
-  justify-content: center;
 }
 
 .heading::before {

@@ -832,7 +832,7 @@ section {
   color: var(--blue);
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1100px) {
   .skills-box {
     grid-template-columns: repeat(4, 1fr);
   }

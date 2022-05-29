@@ -27,7 +27,7 @@ html {
   --blue: #64DAFF;
   
   --violet-tint: rgba(23, 5, 40, 0.7);
-  --violet-shadow: rgb(22, 9, 32);
+  --violet-shadow: rgba(10, 3, 18, 0.7);
   --light-violet-alt: rgb(38, 10, 61);
   --blue-alt: rgba(100, 218, 255, 0.6);
   --blue-tint: rgba(100, 218, 255, 0.122);
@@ -187,6 +187,7 @@ a {
 
 .resize-nav {
   height: 80px !important;
+  box-shadow: 0 0.625rem 1.75rem -0.6rem var(--violet-shadow);
 }
 
 .heading {
@@ -228,6 +229,12 @@ a {
   transition: transform var(--quick) var(--easeOutSine) 0.1s,
               height var(--quick) var(--easeOutSine);
   overflow: hidden;
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .nav-header {
+    backdrop-filter: blur(6px);
+  }
 }
 
 .navbar {

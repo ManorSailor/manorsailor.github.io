@@ -26,7 +26,7 @@ html {
   --white: #FFFFFF;
   --blue: #64DAFF;
   
-  --violet-tint: rgba(23, 5, 40, 0.5);
+  --violet-tint: rgba(23, 5, 40, 0.7);
   --violet-shadow: rgb(22, 9, 32);
   --light-violet-alt: rgb(38, 10, 61);
   --blue-alt: rgba(100, 218, 255, 0.6);
@@ -99,6 +99,8 @@ html {
 
 @media screen and (max-width: 768px) {
   :root {
+    --social-icons-size: 21px;
+
     --mini-sys-size: 100px;
     --planets-size: 210px;
 
@@ -164,11 +166,12 @@ a {
 
 .btn {
   padding: 0.75em 1em;
-  color: var(--btn-clr, var(--blue));
-  border: 1px solid var(--btn-clr, var(--blue));
+  color: var(--blue);
+  border: 1px solid var(--blue);
   border-radius: var(--border-radius);
-  font-family: var(--font-custom, var(--font-text));
+  font-family: var(--font-text);
   font-size: var(--fs-custom, var(--fs-sm));
+  transition: background-color var(--normal) var(--easeOutSine);
 }
 
 .no-animations *,
@@ -187,7 +190,7 @@ a {
 }
 
 .heading {
-  /* --gap: 0.5rem; */
+  color: var(--lightest-slate);
   font-weight: 800;
   position: relative;
   font-size: clamp(var(--fs-xxxl), 4vw, var(--fs-head));
@@ -935,6 +938,7 @@ section {
 
 .wb-card-techstack li {
   font-size: var(--fs-sm);
+  font-family: var(--font-num);
 }
 
 .wb-card:hover {
@@ -949,4 +953,106 @@ section {
 
 .wb-card-title > a:hover {
   color: var(--blue);
+}
+
+/* =================== Contact =================== */
+.contact {
+  --gap: 2rem;
+}
+
+.contact-head {
+  --gap: 1rem;
+  flex-direction: column;
+}
+
+.contact-head h2 {
+  color: var(--blue);
+}
+
+.contact-main {
+  --gap: 3rem;
+  flex-direction: column;
+  max-width: 500px;
+}
+
+.contact-main p {
+  font-size: clamp(var(--fs-md), 2vw, var(--fs-lg));
+  text-align: center;
+}
+
+.contact-main a {
+  --fs-custom: var(--fs-md);
+  padding: 1.25em 1.75em;
+  line-height: 1;
+}
+
+.contact-main a:hover {
+  background-color: var(--blue-tint);
+}
+
+/* ========================== Footer ========================== */
+footer {
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.footer-social {
+  display: none;
+}
+
+.author {
+  color: var(--light-slate);
+  font-size: var(--fs-xs);
+  font-family: var(--font-num);
+  padding: 0.6rem 0.6rem;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  text-align: center;
+  transition: color var(--normal) var(--easeOutSine);
+}
+
+.author::after {
+  content: 'Ali Haider';
+  display: block;
+}
+
+.author:hover {
+  color: var(--blue);
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    --gap: 0.5rem;
+  }
+
+  .footer-social {
+    display: block;
+  }
+
+  .footer-social ul {
+    --gap: 0.25rem;
+  }
+
+  .footer-social-items {
+    padding: 0.75rem 0.75rem;
+  }
+
+  .footer-social-items * {
+    transition: color var(--normal) var(--easeOutSine);
+  }
+
+  .footer-social-items svg {
+    color: var(--light-slate);
+    width: var(--social-icons-size);
+    height: var(--social-icons-size);
+  }
+
+  .footer-social-items:hover svg path {
+    color: var(--blue);
+  }
+
+  .author {
+    padding-top: 0;
+  }
 }

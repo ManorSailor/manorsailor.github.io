@@ -33,9 +33,18 @@ window.addEventListener('resize', () => {
 // Hide/show the navigation when the user scrolls downwards/upwards
 window.addEventListener('scroll', () => {
     newScrollY = window.scrollY;
-    
+
+    // Force close the navbar
+    navMenu.setAttribute('toggle', false);
+    document.body.style.overflow = "auto";
+
+    clearTimeout(prevTimeout);
+
+    // Timeout is required to ensure that navbar slides-out first before hiding the header
     if (newScrollY > oldScrollY) {
-        navHeader.classList.add('hide-nav');
+        var prevTimeout = setTimeout(() => {
+            navHeader.classList.add('hide-nav');
+        }, 50);
     } else if (newScrollY == 0) {
         navHeader.classList.remove('hide-nav', 'resize-nav');
     } else {

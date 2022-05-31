@@ -41,11 +41,11 @@ window.addEventListener('scroll', () => {
     clearTimeout(prevTimeout);
 
     // Timeout is required to ensure that navbar slides-out first before hiding the header
-    if (newScrollY > oldScrollY) {
+    if (newScrollY > oldScrollY && oldScrollY >= 0) {
         var prevTimeout = setTimeout(() => {
             navHeader.classList.add('hide-nav');
         }, 50);
-    } else if (newScrollY == 0) {
+    } else if (newScrollY <= 0) {
         navHeader.classList.remove('hide-nav', 'resize-nav');
     } else {
         navHeader.classList.add('resize-nav');

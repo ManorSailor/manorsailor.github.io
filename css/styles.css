@@ -159,7 +159,6 @@ a {
 
 .container {
   margin: 0 auto;
-  min-height: 100vh;
   max-width: 1250px;
   /* border: 2px solid red; */
 }
@@ -433,10 +432,16 @@ main {
 section {
   flex-direction: column;
   justify-content: center;
+  padding: 150px 0;
   position: relative;
   overflow: hidden;
 }
 
+@media screen and (max-width: 768px) {
+  section {
+    padding: 100px 0;
+  }
+}
 /* =================== Social Bar =================== */
 .social {
   z-index: 9;
@@ -516,6 +521,8 @@ section {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  min-height: 100vh;
+  padding: 0;
   overflow: hidden;
 }
 

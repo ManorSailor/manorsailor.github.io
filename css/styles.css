@@ -279,7 +279,7 @@ a {
   content: '';
   display: block;
   position: absolute;
-  top: calc(100% + 1px); right: 0; bottom: 0; left: 0.25px;
+  top: calc(100% + 0.5px); right: 0; bottom: 0; left: 0.25px;
   inset: calc(100% + 0.5px) 0 0 0.25px;
   width: 100%;
   height: 1px;

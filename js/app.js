@@ -22,10 +22,10 @@ window.addEventListener('resize', () => {
     // Clear the oldtimeout. Not required, just a good practice to clear what you've initialized
     clearTimeout(oldTimeout);
     
-    // Timeout of 0.5s, just for a little breathing room if the user resizes their window like a maniac
+    // Timeout of 0.25s, just for a little breathing room if the user resizes their window like a maniac
     oldTimeout = setTimeout(() => {
         document.body.classList.remove('no-animations');
-    }, 500);
+    }, 250);
 });
 
 /* ================= Navigation ================= */

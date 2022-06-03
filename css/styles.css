@@ -322,7 +322,7 @@ a {
     justify-content: center;
     border-radius: 10px;
     transform: translateX(100%);
-    transition: transform var(--quick) var(--easeOutCubic);
+    transition: transform var(--normal) var(--easeOutSine);
     background-color: var(--light-violet);
   }
 

@@ -978,8 +978,9 @@ section {
   flex-direction: column;
 }
 
-.contact-head h2 {
+.contact-head h1 {
   color: var(--blue);
+  font-size: clamp(var(--fs-xl), 3vw, 24px);
 }
 
 .contact-main {

@@ -808,6 +808,7 @@ section {
   width: var(--sk-card-size);
   height: var(--sk-card-size);
   border-radius: var(--card-radius);
+  transform: translateY(0);
   transition: transform var(--normal) var(--easeOutSine),
               box-shadow var(--normal) var(--easeOutSine);
   user-select: none; /* Makes the card & all of its children unselectable by the user */

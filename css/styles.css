@@ -85,6 +85,11 @@ html {
   --venus-revolution-time: 122s;
   --earth-revolution-time: 182s;
 
+  /* Skill Cards */
+  --sk-card-size: clamp(100px, 12vw, 125px);
+  --sk-svg-size: clamp(33px, 4vw, 40px);
+  --sk-font-size: clamp(var(--fs-sm), 2vw, var(--fs-md));
+
   /* Transition */
   --quick: 200ms;
   --normal: 250ms;
@@ -790,40 +795,45 @@ section {
 .skills-box {
   display: grid;
   gap: 1rem;
-  row-gap: 1.25rem;
-  grid-template-columns: repeat(6, 1fr);
-  place-items: center;
+  grid-template-columns: repeat(auto-fit, var(--sk-card-size));
+  width: 100%;
+  max-width: 900px;
+  justify-content: center;
 }
 
 .card {
   --gap: 1rem;
   flex-direction: column;
   justify-content: center;
-  width: clamp(70px, 12vw, 125px);
-  height: clamp(70px, 12vw, 125px);
+  width: var(--sk-card-size);
+  height: var(--sk-card-size);
   border-radius: var(--card-radius);
-  cursor: pointer; /* Gives you the hand cursor pointer */
+  transition: transform var(--normal) var(--easeOutSine),
+              box-shadow var(--normal) var(--easeOutSine);
   user-select: none; /* Makes the card & all of its children unselectable by the user */
 }
 
-.card,
-.card * {
-  transition: all var(--normal) var(--easeOutSine);
-}
-
 .card svg {
-  width: clamp(30px, 4vw, 40px);
-  height: clamp(30px, 4vw, 40px);
+  opacity: 0.5;
+  width: var(--sk-svg-size);
+  height: var(--sk-svg-size);
   color: var(--slate);
   transform: translateY(50%);
-  opacity: 0.5;
 }
 
 .card p {
   opacity: 0;
   transition-delay: 0.05s;
-  font-size: clamp(var(--fs-xs), 2vw, var(--fs-md));
+  font-size: var(--sk-font-size);
   transform: translateY(-50%) scaleY(0.5);
+}
+
+.card svg,
+.card svg path,
+.card p {
+  transition-property: transform, opacity, color;
+  transition-duration: var(--normal);
+  transition-timing-function: var(--easeOutSine);
 }
 
 .card:hover {
@@ -845,18 +855,6 @@ section {
 .card:hover svg path,
 .card:hover p {
   color: var(--blue);
-}
-
-@media screen and (max-width: 1100px) {
-  .skills-box {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media screen and (max-width: 340px) {
-  .skills-box {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* =================== Work =================== */

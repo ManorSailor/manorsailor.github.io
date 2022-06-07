@@ -49,7 +49,8 @@ html {
   --fs-xxl: 22px;
   --fs-xxxl: 1.6rem;
 
-  --fs-head: 2rem;
+  --fs-name: 2.5rem;
+  --fs-head: 2.25rem;
   --fs-title: 3.5rem;
 
   --border-radius: 4px;
@@ -535,7 +536,7 @@ section {
 .ht-intro {
   font-weight: 100;
   color: var(--blue);
-  font-size: clamp(var(--fs-sm), 3vw, var(--fs-xl));
+  font-size: clamp(var(--fs-md), 2vw, var(--fs-xl));
   font-family: var(--font-text);
   margin-bottom: 1rem;
   /* margin-left: 0.185rem; */
@@ -543,21 +544,20 @@ section {
 
 .ht-name {
   font-weight: 600;
-  font-size: clamp(var(--fs-head), 8vw, var(--fs-title));
+  font-size: clamp(var(--fs-name), 8vw, var(--fs-title));
   color: var(--lightest-slate);
   margin-bottom: -0.4rem;
 }
 
 .ht-desc {
-  /* font-size: clamp(var(--fs-md), 100vw, var(--fs-lg)); */
   margin: 1.5rem 0 1.5rem 0;
-  font-size: clamp(var(--fs-sm), 2vw, var(--fs-md));
+  font-size: clamp(var(--fs-md), 2vw, var(--fs-lg));
   max-width: 584px;
 }
 
 .ht-btn {
   position: relative;
-  --fs-custom: var(--fs-md);
+  --fs-custom: clamp(var(--fs-sm), 2vw, var(--fs-md));
 }
 
 .ht-btn,

@@ -49,9 +49,9 @@ html {
   --fs-xxl: 22px;
   --fs-xxxl: 1.6rem;
 
-  --fs-name: 2.5rem;
   --fs-head: 2.25rem;
-  --fs-title: 3.5rem;
+  --fs-name-min: 2.5rem;
+  --fs-name-max: 3.5rem;
 
   --border-radius: 4px;
   --card-radius: 6px;
@@ -544,7 +544,7 @@ section {
 
 .ht-name {
   font-weight: 600;
-  font-size: clamp(var(--fs-name), 8vw, var(--fs-title));
+  font-size: clamp(var(--fs-name-min), 8vw, var(--fs-name-max));
   color: var(--lightest-slate);
   margin-bottom: -0.4rem;
 }

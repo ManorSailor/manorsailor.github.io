@@ -12,6 +12,11 @@
   box-sizing: border-box;
 }
 
+::selection {
+  background-color: var(--lightest-violet);
+  color: var(--blue);
+}
+
 html {
   scrollbar-width: thin;
   scroll-behavior: smooth;

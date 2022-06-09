@@ -13,7 +13,26 @@
 }
 
 html {
+  scrollbar-width: thin;
   scroll-behavior: smooth;
+  scrollbar-color: hsl(225, 20%, 35%) var(--violet);
+}
+
+html::-webkit-scrollbar {
+  width: 12px;
+  background-color: var(--violet);
+}
+
+html::-webkit-scrollbar-thumb {
+  /* Using a border-color here to ensure that the thumb doesn't get submerged when it hits the edges of track. Using the same color as bg color creates an illusion that scoller is stopping right before the edge */
+  border: 3px solid var(--violet); 
+  border-radius: var(--card-radius);
+  background-color: hsl(225, 20%, 35%);
+  transition: all var(--quick) var(--easeInOutSine);
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(225, 20%, 45%);
 }
 
 :root {

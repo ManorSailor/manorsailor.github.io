@@ -28,7 +28,6 @@ html::-webkit-scrollbar-thumb {
   border: 3px solid var(--violet); 
   border-radius: var(--card-radius);
   background-color: hsl(225, 20%, 35%);
-  transition: all var(--quick) var(--easeInOutSine);
 }
 
 html::-webkit-scrollbar-thumb:hover {

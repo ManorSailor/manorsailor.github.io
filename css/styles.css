@@ -202,12 +202,12 @@ a {
   transition: background-color var(--normal) var(--easeOutSine);
 }
 
-.no-animations *,
+/* .no-animations *,
 .no-animations *::before,
 .no-animations *::after {
   animation: none !important;
   transition: none !important;
-}
+} */
 
 .hide-nav {
   transform: translateY(-100%);
@@ -346,7 +346,7 @@ a {
     justify-content: center;
     border-radius: 10px;
     transform: translateX(100vw);
-    transition: transform var(--normal) var(--easeOutSine);
+    transition: all var(--normal) var(--easeOutSine);
     background-color: var(--light-violet);
     overflow: hidden;
   }
@@ -818,6 +818,7 @@ section {
   width: 100%;
   max-width: 900px;
   justify-content: center;
+  padding: 0 1.25rem;
 }
 
 .card {

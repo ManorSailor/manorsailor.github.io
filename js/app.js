@@ -16,7 +16,7 @@ window.addEventListener('resize', () => {
 
     // If width is greater than 768px, force close the navbar
     if (window.innerWidth > 768) {
-        navMenu.setAttribute('toggle', false);
+        hideNav();
     }
 
     // Clear the oldtimeout. Not required, just a good practice to clear what you've initialized
@@ -30,13 +30,24 @@ window.addEventListener('resize', () => {
 
 /* ================= Navigation ================= */
 
+// Helper functions utilized for hiding/unhiding navbar on mobile screens
+// Setting the appropriate overflow property on the body to lock scrolling when menu is open
+function hideNav() {
+    navMenu.setAttribute('toggle', false);
+    document.body.style.overflow = "auto";
+}
+
+function showNav() {
+    navMenu.setAttribute('toggle', true);
+    document.body.style.overflow = "hidden";
+}
+
 // Hide/show the navigation when the user scrolls downwards/upwards
 window.addEventListener('scroll', () => {
     newScrollY = window.scrollY;
 
     // Force close the navbar
-    navMenu.setAttribute('toggle', false);
-    document.body.style.overflow = "auto";
+    hideNav();
 
     clearTimeout(prevTimeout);
 
@@ -59,25 +70,17 @@ window.addEventListener('scroll', () => {
 // Hide the navigation menu if the user touches any area outside of nav-menu i.e, the blurred content
 ['click', 'touchmove'].forEach(eve => {
     content.addEventListener(eve, () => {
-        visible = navMenu.getAttribute('toggle');
-    
-        if (visible == 'true') {
-            navMenu.setAttribute('toggle', false);
-            document.body.style.overflow = "auto";
-        }
+        hideNav();
     });
 });
 
 // Add functionality to the hamburger for hiding & unhiding the navigation
-// Setting the appropriate overflow property on the body to lock scrolling when menu is open
 ham.addEventListener('click', () => {
     visible = navMenu.getAttribute('toggle');
 
     if (visible == 'false') {
-        navMenu.setAttribute('toggle', true);
-        document.body.style.overflow = "hidden";
+        showNav();
     } else {
-        navMenu.setAttribute('toggle', false);
-        document.body.style.overflow = "auto";
+        hideNav();
     }
 });

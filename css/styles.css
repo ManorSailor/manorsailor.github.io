@@ -257,7 +257,6 @@ a {
   transition: transform var(--quick) var(--easeOutSine) 0.1s,
               height var(--quick) var(--easeOutSine);
   backdrop-filter: blur(6px);
-  overflow: hidden;
 }
 
 .navbar {
@@ -335,10 +334,6 @@ a {
 }
 
 @media screen and (max-width: 768px) {
-  .nav-header {
-    backdrop-filter: none;
-  }
-
   .nav-box {
     --gap: 2.5rem;
     position: fixed;
@@ -350,13 +345,14 @@ a {
     height: 100vh;
     justify-content: center;
     border-radius: 10px;
-    transform: translateX(100%);
+    transform: translateX(100vw);
     transition: transform var(--normal) var(--easeOutSine);
     background-color: var(--light-violet);
+    overflow: hidden;
   }
 
   .nav-box[toggle="true"] {
-    transform: translateX(0);
+    transform: translateX(0vw);
   }
 
   .nav-box,

@@ -78,6 +78,7 @@ html::-webkit-scrollbar-thumb:hover {
 
   --border-radius: 4px;
   --card-radius: 6px;
+  --ham-radius: 8px;
 
   --social-icons-size: 1.5rem;
   --social-bar-height: 6.25rem;
@@ -411,10 +412,29 @@ a {
 
   .ham {
     display: block;
-    height: 22.5px;
+    width: 42px;
+    height: 42px;
     z-index: 20;
-    position: relative;
     cursor: pointer;
+    position: relative;
+  }
+
+  .ham-lines {
+    width: inherit;
+    height: 2px;
+    top: 50%;
+    position: absolute;
+    border-radius: var(--ham-radius);
+    background-color: var(--blue);
+    padding: 0.08rem;
+  }
+
+  .ham-lines:nth-child(1) {
+    top: 26%;
+  }
+
+  .ham-lines:nth-child(3) {
+    top: 76%;
   }
 
   /* Blur all the sections with an id of content or make sure every content is within a div tag with a class or id of content or anything */

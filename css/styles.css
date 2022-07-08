@@ -2,7 +2,7 @@
 * {
   margin: 0;
   padding: 0;
-  list-style-type: none;
+  list-style: none;
   text-decoration: none;
   box-sizing: border-box;
 }
@@ -158,8 +158,6 @@ body {
 
 /* ========================== Typography ========================== */
 svg {
-  /* width: 100%;
-  height: 100%; */
   fill: currentColor;
   color: var(--blue);
   vertical-align: middle;
@@ -190,7 +188,6 @@ a {
 .container {
   margin: 0 auto;
   max-width: 1250px;
-  /* border: 2px solid red; */
 }
 
 .btn {
@@ -280,12 +277,10 @@ a {
 
 #logo {
   fill: none;
-  /* transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1); */
 }
 
 #logo:hover {
   fill: var(--blue-tint);
-  /* transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1); */
 }
 
 .ham {
@@ -331,7 +326,6 @@ a {
 
 .resume-btn:hover {
   background-color: var(--blue-tint);
-  /* background-image: conic-gradient(from 180deg, var(--blue), var(--blue-tint)); */
 }
 
 @media screen and (max-width: 768px) {
@@ -436,11 +430,6 @@ a {
   .ham-lines:nth-child(3) {
     top: 76%;
   }
-
-  /* Blur all the sections with an id of content or make sure every content is within a div tag with a class or id of content or anything */
-  /* section {
-    filter: blur(5px) brightness(0.8);
-  } */
 }
 
 /* ========================== Main ========================== */
@@ -578,7 +567,6 @@ section {
   font-size: clamp(var(--fs-md), 2vw, var(--fs-xl));
   font-family: var(--font-text);
   margin-bottom: 1rem;
-  /* margin-left: 0.185rem; */
 }
 
 .ht-name {

@@ -69,9 +69,7 @@ window.addEventListener('scroll', () => {
 
 // Hide the navigation menu if the user touches any area outside of nav-menu i.e, the blurred content
 ['click', 'touchmove'].forEach(eve => {
-    content.addEventListener(eve, () => {
-        hideNav();
-    });
+    content.addEventListener(eve, hideNav);
 });
 
 // Add functionality to the hamburger for hiding & unhiding the navigation

@@ -1,38 +1,43 @@
-<h1 align="center">
-    <a href="https://manorsailor.github.io/" target="_blank">manorsailor.github.io - v1</a>
-</h1>
+# Astro Starter Kit: Minimal
 
-![demo](https://raw.githubusercontent.com/ManorSailor/manorsailor.github.io/main/img/demo.png)
-<p align="center">First version of my portfolio website built from scratch in pure HTML, CSS, & JS, hosted on <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages" target="_blank">Github pages</a></p>
+```sh
+pnpm create astro@latest -- --template minimal
+```
 
-## Table of Contents
-+ [About](#about)
-+ [Forks](#forking)
-+ [FAQ](#faq)
-+ [Credits](#creds)
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-## About <a name="about"></a>
-This is the first iteration of my portfolio website, however, it is more than just a fun side project.
-I created this website to not only showcase my skills & projects but also to finish Harvard's [CS50x](https://cs50.harvard.edu/x/2022/).
-I wanted to create a project that would not only fulfill the course's requirements but would also be helpful to me in the long run.
+## 🚀 Project Structure
 
-If you like what you see, please consider giving this repository a __star__<br>
+Inside of your Astro project, you'll see the following folders and files:
 
-## Forks <a name="forking"></a>
-You are free to use this project as your own as long as you keep it open source & give proper credits
-Remember, plagiarism is bad! Don't claim to be the creator if you haven't actually created it!
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-Thank you!
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-## FAQ <a name="faq"></a>
-### Why have you not used frameworks like Jekyll, Bootstrap, React or others?
-* Simply because I wanted to learn more about vanilla CSS, HTML & JS. I intentionally avoided using any or all frameworks to sharpen my skills in these technologies.
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-## Credits <a name="creds"></a>
-Following list includes the names of all the people & resources which helped in the creation<br>
-Thanks to: 
+Any static assets, like images, can be placed in the `public/` directory.
 
-- [@bchiang7](https://github.com/bchiang7) creator of [brittanychiang.com](https://brittanychiang.com/). You may or may not have noticed the resemblance between her & my website, its because her website inspired me to create my own around the same minimalistic style. I simply didn't want to copy & paste her website, but rather take inspiration from her amazing designer skills & color combos. A special thanks to her!
-- [@delvignefred](https://codepen.io/delvignefred) for his aesthetically pleasing [codepen](https://codepen.io/delvignefred/pen/ZEKyjeo)
-- [SVGrepo](https://www.svgrepo.com/) & [Devicon](https://devicon.dev/) for all the SVG assets
-- [Matthew lein](https://matthewlein.com/) for his [tool](https://matthewlein.com/tools/ceaser) to create custom easing curves
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `pnpm install`             | Installs dependencies                            |
+| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
+| `pnpm build`           | Build your production site to `./dist/`          |
+| `pnpm preview`         | Preview your build locally, before deploying     |
+| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
